@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package user;
+
+service UserService {
+    rpc ChangePassword (ChangePasswordRequest) returns (ChangePasswordResponse) {}
+    rpc resetPassword (ResetPasswordRequest) returns (ResetPasswordResponse) {}
+}
+
+// Change Password
+message ChangePasswordRequest {
+    string currentPassword = 1;
+    string password = 2;
+    string confirmPassword = 3;
+}
+message ChangePasswordResponse {
+    int32 status = 1;
+    repeated string error = 2;
+}
+
+// Reset Password
+message ResetPasswordRequest {
+    string password = 1;
+    string confirmPassword = 2;
+}
+message ResetPasswordResponse {
+    int32 status = 1;
+    repeated string error = 2;
+}
