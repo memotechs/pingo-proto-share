@@ -2,13 +2,35 @@ syntax = "proto3";
 
 package user;
 
+import "common.proto";
+
 service UserService {
     rpc ChangePassword (ChangePasswordRequest) returns (ChangePasswordResponse) {}
     rpc ForgetPassword (ForgetPasswordRequest) returns (ForgetPasswordResponse) {}
     rpc ResetPassword (ResetPasswordRequest) returns (ResetPasswordResponse) {}
     rpc UserProfile (UserProfileRequest) returns (UserProfileResponse) {}
-    rpc ValidateClientId(ValidateClientIdRequest) returns (ValidateClientIdResponse) {}
-    rpc UserUpdateProfile(UserUpdateProfileRequest) returns (UserUpdateProfileResponse) {}
+    rpc ValidateClientId (ValidateClientIdRequest) returns (ValidateClientIdResponse) {}
+    rpc UserUpdateProfile (UserUpdateProfileRequest) returns (UserUpdateProfileResponse) {}
+    rpc UserVerification (UserVerificationRequest) returns (UserVerificationResponse) {}
+    rpc ResendVerification (UserVerificationRequest) returns (UserVerificationResponse) {}
+}
+
+// User Verification
+message UserVerificationRequest {
+    int64 userId = 1;
+}
+message UserVerificationResponse {
+    int32 status = 1;
+    repeated string error = 2;
+}
+
+// User ResendVerification
+message UserResendVerificationRequest {
+    int64 userId = 1;
+}
+message UserResendVerificationResponse {
+    int32 status = 1;
+    repeated string error = 2;
 }
 
 // User Profile
