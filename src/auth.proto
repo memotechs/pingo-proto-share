@@ -2,17 +2,25 @@ syntax = "proto3";
 
 package auth;
 
+import "common.proto";
+
 service AuthService {
     rpc Register (RegisterRequest) returns (RegisterResponse) {}
-    rpc Login (LoginRequest) returns (LoginResponse) {}
+    rpc Login (LoginRequest) returns (TokenResponse) {}
     rpc Validate (ValidateRequest) returns (ValidateResponse) {}
     rpc ValidateRefreshToken (ValidateRefreshTokenRequest) returns (ValidateRefreshTokenResponse) {}
+    rpc RefreshToken (RefreshTokenRequest) returns (TokenResponse) {}
 }
   
 // Register
 message RegisterRequest {
     string clientId = 1;
-    string password = 2;
+    string emailAddress = 2;
+    string firstName = 3;
+    string lastName = 4;
+    string profileImageUrl = 5;
+    string password = 6;
+    string confirmPassword = 7;
 }
 message RegisterResponse {
     int32 status = 1;
@@ -24,10 +32,17 @@ message LoginRequest {
     string clientId = 1;
     string password = 2;
 }
-message LoginResponse {
+message TokenResponse {
     int32 status = 1;
     repeated string error = 2;
-    string token = 3;
+    common.Token token = 3;
+    int64 userId = 4;
+    string type = 5;
+}
+
+// RefreshToken
+message RefreshTokenRequest {
+    string token = 1;
 }
 
 // Validate
@@ -36,8 +51,8 @@ message ValidateRequest {
 }
 message ValidateResponse {
     int32 status = 1;
-    repeated string error = 2;
-    int32 userId = 3;
+    int32 userId = 2;
+    repeated string error = 3;
 }
 
 // Validate Refresh Token
@@ -46,6 +61,6 @@ message ValidateRefreshTokenRequest {
 }
 message ValidateRefreshTokenResponse {
     int32 status = 1;
-    repeated string error = 2;
-    int32 userId = 3;
+    int32 userId = 2;
+    repeated string error = 3;
 }

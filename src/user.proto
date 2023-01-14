@@ -15,6 +15,14 @@ service UserService {
     rpc ResendVerification (UserVerificationRequest) returns (UserVerificationResponse) {}
 }
 
+message User {
+    string id = 1;
+    string clientId = 2;
+    string firstName = 3;
+    string lastName = 4;
+    string profileImageUrl = 5;
+}
+
 // User Verification
 message UserVerificationRequest {
     int64 userId = 1;
@@ -39,7 +47,8 @@ message UserProfileRequest {
 }
 message UserProfileResponse {
     int32 status = 1;
-    repeated string error = 2;
+    User data = 2;
+    repeated string error = 3;
 }
 
 // User Update Profile

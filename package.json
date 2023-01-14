@@ -1,7 +1,7 @@
 {
-  "name": "pro-share",
+  "name": "pingo-proto-share",
   "version": "1.0.0",
-  "description": "",
+  "description": "pingo proto share",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +10,6 @@
     "type": "git",
     "url": "git@mm:memo-asia/pingo-proto-share.git"
   },
-  "author": "",
+  "author": "PINGO",
   "license": "ISC"
 }
