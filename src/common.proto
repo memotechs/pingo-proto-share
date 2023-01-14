@@ -31,20 +31,3 @@ message ByEmail {
 message SuccessResponse {
   bool success = 1;
 }
-
-message AccessToken {
-  string accessToken = 1;
-  string expiresIn = 2;
-}
-
-message RefreshToken {
-  string accessToken = 1;
-  string expiresIn = 2;
-}
-
-message Token {
-  AccessToken accessToken = 1;
-  RefreshToken refreshToken = 2;
-  int64 userId = 3;
-  string type = 4;
-}

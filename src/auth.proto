@@ -35,7 +35,7 @@ message LoginRequest {
 message TokenResponse {
     int32 status = 1;
     repeated string error = 2;
-    common.Token token = 3;
+    Token token = 3;
     int64 userId = 4;
     string type = 5;
 }
@@ -63,4 +63,21 @@ message ValidateRefreshTokenResponse {
     int32 status = 1;
     int32 userId = 2;
     repeated string error = 3;
+}
+
+message AccessToken {
+    string accessToken = 1;
+    string expiresIn = 2;
+}
+
+message RefreshToken {
+    string accessToken = 1;
+    string expiresIn = 2;
+}
+
+message Token {
+    AccessToken accessToken = 1;
+    RefreshToken refreshToken = 2;
+    int64 userId = 3;
+    string type = 4;
 }
