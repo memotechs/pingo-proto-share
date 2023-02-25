@@ -15,13 +15,22 @@ service UserService {
     rpc ResendVerification (UserVerificationRequest) returns (UserVerificationResponse) {}
 }
 
+message User {
+    int64 id = 1;
+    string firstName = 2;
+    string lastName = 3;
+    string phoneNumber = 4;
+    string emailAddress = 5;
+    string profileImageUrl = 6;
+}
+
 // User Verification
 message UserVerificationRequest {
     int64 userId = 1;
 }
 message UserVerificationResponse {
     int32 status = 1;
-    repeated string error = 2;
+    string message = 2;
 }
 
 // User ResendVerification
@@ -30,7 +39,7 @@ message UserResendVerificationRequest {
 }
 message UserResendVerificationResponse {
     int32 status = 1;
-    repeated string error = 2;
+    string message = 2;
 }
 
 // User Profile
@@ -39,7 +48,8 @@ message UserProfileRequest {
 }
 message UserProfileResponse {
     int32 status = 1;
-    repeated string error = 2;
+    User user = 2;
+    string message = 3;
 }
 
 // User Update Profile
@@ -48,7 +58,8 @@ message UserUpdateProfileRequest {
 }
 message UserUpdateProfileResponse {
     int32 status = 1;
-    repeated string error = 2;
+    User user = 2;
+    string message = 3;
 }
 
 // ValidateClientId
@@ -57,8 +68,8 @@ message ValidateClientIdRequest {
 }
 message ValidateClientIdResponse {
     int32 status = 1;
-    repeated string error = 2;
-    int32 userId = 3;
+    int32 userId = 2;
+    string message = 3;
 }
 
 // Change Password
@@ -69,7 +80,7 @@ message ChangePasswordRequest {
 }
 message ChangePasswordResponse {
     int32 status = 1;
-    repeated string error = 2;
+    string message = 2;
 }
 
 // Forget Password
@@ -78,7 +89,7 @@ message ForgetPasswordRequest {
 }
 message ForgetPasswordResponse {
     int32 status = 1;
-    repeated string error = 2;
+    string message = 2;
 }
 
 // Reset Password
@@ -88,5 +99,5 @@ message ResetPasswordRequest {
 }
 message ResetPasswordResponse {
     int32 status = 1;
-    repeated string error = 2;
+    string message = 2;
 }

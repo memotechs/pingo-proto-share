@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package iserp.backend.common;
+package common;
 
 message Browser {
   string name = 1;
