@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package schedule;
+
+service ScheduleService {
+    rpc GetScheduleListWithPagination (GetScheduleListWithPaginationRequest) returns (GetScheduleListWithPaginationResponse) {}
+}
+
+message Schedule {}
+
+message ScheduleLine {}
+
+message GetScheduleListWithPaginationRequest {}
+
+message GetScheduleListWithPaginationResponse {}

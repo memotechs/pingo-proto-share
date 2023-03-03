@@ -20,7 +20,9 @@ message User {
     string clientId = 2;
     string firstName = 3;
     string lastName = 4;
-    string profileImageUrl = 5;
+    string phoneNumber = 5;
+    string emailAddress = 6;
+    string profileImageUrl = 7;
 }
 
 // User Verification
@@ -29,7 +31,7 @@ message UserVerificationRequest {
 }
 message UserVerificationResponse {
     int32 status = 1;
-    repeated string error = 2;
+    string message = 2;
 }
 
 // User ResendVerification
@@ -38,7 +40,7 @@ message UserResendVerificationRequest {
 }
 message UserResendVerificationResponse {
     int32 status = 1;
-    repeated string error = 2;
+    string message = 2;
 }
 
 // User Profile
@@ -47,8 +49,8 @@ message UserProfileRequest {
 }
 message UserProfileResponse {
     int32 status = 1;
-    User data = 2;
-    repeated string error = 3;
+    User user = 2;
+    string message = 3;
 }
 
 // User Update Profile
@@ -57,7 +59,8 @@ message UserUpdateProfileRequest {
 }
 message UserUpdateProfileResponse {
     int32 status = 1;
-    repeated string error = 2;
+    User user = 2;
+    string message = 3;
 }
 
 // ValidateClientId
@@ -66,8 +69,8 @@ message ValidateClientIdRequest {
 }
 message ValidateClientIdResponse {
     int32 status = 1;
-    repeated string error = 2;
-    int32 userId = 3;
+    int32 userId = 2;
+    string message = 3;
 }
 
 // Change Password
@@ -78,7 +81,7 @@ message ChangePasswordRequest {
 }
 message ChangePasswordResponse {
     int32 status = 1;
-    repeated string error = 2;
+    string message = 2;
 }
 
 // Forget Password
@@ -87,7 +90,7 @@ message ForgetPasswordRequest {
 }
 message ForgetPasswordResponse {
     int32 status = 1;
-    repeated string error = 2;
+    string message = 2;
 }
 
 // Reset Password
@@ -97,5 +100,5 @@ message ResetPasswordRequest {
 }
 message ResetPasswordResponse {
     int32 status = 1;
-    repeated string error = 2;
+    string message = 2;
 }
