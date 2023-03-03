@@ -16,6 +16,12 @@ message Booking {
     string bookingNo = 2;
 }
 
+message BookingItem {
+    int64 id = 1;
+    double price = 2;
+    Booking Booking = 3;
+}
+
 message GetBookingListWithPaginationRequest {}
 message GetBookingListWithPaginationResponse {}
 
