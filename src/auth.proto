@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package auth;
 
-import "common.proto";
-
 service AuthService {
     rpc Register (RegisterRequest) returns (RegisterResponse) {}
     rpc Login (LoginRequest) returns (TokenResponse) {}
