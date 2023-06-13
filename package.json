@@ -1,15 +1,10 @@
 {
-  "name": "pingo-proto-share",
-  "version": "1.0.0",
+  "name": "mm-proto-share",
+  "version": "0.0.1",
   "description": "pingo proto share",
-  "main": "index.js",
+  "author": "Mesa SOT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@mm:memo-asia/pingo-proto-share.git"
-  },
-  "author": "PINGO",
-  "license": "ISC"
+  "license": "MIT"
 }
