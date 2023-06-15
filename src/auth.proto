@@ -9,6 +9,23 @@ service AuthService {
     rpc ValidateRefreshToken (ValidateRefreshTokenRequest) returns (ValidateRefreshTokenResponse) {}
     rpc RefreshToken (RefreshTokenRequest) returns (TokenResponse) {}
 }
+
+message User {
+    int64 id = 1;
+    string clientId = 2;
+    string firstName = 3;
+    string lastName = 4;
+    string phoneNumber = 5;
+    string emailAddress = 6;
+    string profileImageUrl = 7;
+}
+
+message UserVerification {
+    int64 id = 1;
+    string code = 2;
+    string verifyToken = 3;
+    User user = 4;
+}
   
 // Register
 message RegisterRequest {
@@ -17,12 +34,14 @@ message RegisterRequest {
     string firstName = 3;
     string lastName = 4;
     string profileImageUrl = 5;
-    string password = 6;
-    string confirmPassword = 7;
+    string phoneNumber = 6;
+    string password = 7;
 }
 message RegisterResponse {
     int32 status = 1;
-    repeated string error = 2;
+    string message = 2;
+    UserVerification userVerification = 3;
+    repeated string error = 4;
 }
 
 // Login
