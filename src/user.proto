@@ -12,6 +12,7 @@ service UserService {
     rpc UserVerification (UserVerificationRequest) returns (UserVerificationResponse) {}
     rpc ResendVerification (UserVerificationRequest) returns (UserVerificationResponse) {}
     rpc CreateUser (CreateUserRequest) returns (CreateUserResponse) {}
+    rpc VerifyUserVerification (VerifyUserVerificationRequest) returns (VerifyUserVerificationResponse) {}
 }
 
 message User {
@@ -29,6 +30,17 @@ message UserVerification {
     string code = 2;
     string verifyToken = 3;
     User user = 4;
+}
+
+// VerifyUserVerification
+message VerifyUserVerificationRequest {
+    string code = 1;
+    string verifyToken = 2;
+}
+message VerifyUserVerificationResponse {
+    int32 status = 1;
+    string message = 2;
+    UserVerification userVerification = 3;
 }
 
 // Create User
@@ -50,7 +62,7 @@ message CreateUserResponse {
 
 // User Verification
 message UserVerificationRequest {
-    User user = 1;
+    string verifyToken = 1;
 }
 message UserVerificationResponse {
     int32 status = 1;
@@ -68,7 +80,7 @@ message UserResendVerificationResponse {
 
 // User Profile
 message UserProfileRequest {
-    int64 userId = 1;
+    int32 userId = 1;
 }
 message UserProfileResponse {
     int32 status = 1;
@@ -78,7 +90,14 @@ message UserProfileResponse {
 
 // User Update Profile
 message UserUpdateProfileRequest {
-    int64 userId = 1;
+    int32 userId = 1;
+    string clientId = 2;
+    string emailAddress = 3;
+    string phoneNumber = 4;
+    string firstName = 5;
+    string lastName = 6;
+    string password = 7;
+    string profileImageUrl = 8;
 }
 message UserUpdateProfileResponse {
     int32 status = 1;
