@@ -8,6 +8,7 @@ service AuthService {
     rpc Validate (ValidateRequest) returns (ValidateResponse) {}
     rpc ValidateRefreshToken (ValidateRefreshTokenRequest) returns (ValidateRefreshTokenResponse) {}
     rpc RefreshToken (RefreshTokenRequest) returns (TokenResponse) {}
+    rpc VerifyUserRegistration (VerifyUserRegistrationRequest) returns (VerifyUserRegistrationResponse) {}
 }
 
 message User {
@@ -42,6 +43,19 @@ message RegisterResponse {
     string message = 2;
     UserVerification userVerification = 3;
     repeated string error = 4;
+}
+
+// VerifyUserRegistration
+message VerifyUserRegistrationRequest {
+    string verifyToken = 1;
+    string code = 2;
+}
+message VerifyUserRegistrationResponse {
+    nt32 status = 1;
+    string message = 2;
+    Token token = 3;
+    int32 userId = 4;
+    string type = 5;
 }
 
 // Login
