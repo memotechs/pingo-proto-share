@@ -53,7 +53,7 @@ message TokenResponse {
     int32 status = 1;
     string message = 2;
     Token token = 3;
-    int64 userId = 4;
+    int32 userId = 4;
     string type = 5;
 }
 
