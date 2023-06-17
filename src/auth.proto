@@ -83,12 +83,12 @@ message ValidateRefreshTokenResponse {
 }
 
 message AccessToken {
-    string accessToken = 1;
+    string token = 1;
     string expiresIn = 2;
 }
 
 message RefreshToken {
-    string accessToken = 1;
+    string token = 1;
     string expiresIn = 2;
 }
 
