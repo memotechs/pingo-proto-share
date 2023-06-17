@@ -51,9 +51,10 @@ message LoginRequest {
 }
 message TokenResponse {
     int32 status = 1;
-    Token token = 2;
-    int32 userId = 3;
-    string type = 4;
+    repeated string error = 2;
+    Token token = 3;
+    int64 userId = 4;
+    string type = 5;
 }
 
 // RefreshToken
