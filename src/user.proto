@@ -19,7 +19,7 @@ service UserService {
 message User {
     int64 id = 1;
     string clientId = 2;
-    string clientId = 3;
+    string clientSecret = 3;
     string firstName = 4;
     string lastName = 5;
     string phoneNumber = 6;
