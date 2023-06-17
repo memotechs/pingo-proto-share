@@ -9,6 +9,7 @@ service UserService {
     rpc UserProfile (UserProfileRequest) returns (UserProfileResponse) {}
     rpc ValidateClientId (ValidateClientIdRequest) returns (ValidateClientIdResponse) {}
     rpc UserUpdateProfile (UserUpdateProfileRequest) returns (UserUpdateProfileResponse) {}
+    rpc GetUserByClientId (GetUserByClientIdRequest) returns (GetUserByClientIdResponse) {}
     rpc UserVerification (UserVerificationRequest) returns (UserVerificationResponse) {}
     rpc ResendVerification (UserVerificationRequest) returns (UserVerificationResponse) {}
     rpc CreateUser (CreateUserRequest) returns (CreateUserResponse) {}
@@ -30,6 +31,16 @@ message UserVerification {
     string code = 2;
     string verifyToken = 3;
     User user = 4;
+}
+
+// GetUserByClientId
+message GetUserByClientIdRequest {
+    string clientId = 1;
+}
+message GetUserByClientIdResponse {
+    int32 status = 1;
+    User user = 2;
+    string message = 3;
 }
 
 // VerifyUserVerification
