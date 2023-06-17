@@ -25,7 +25,7 @@ message User {
     string phoneNumber = 6;
     string emailAddress = 7;
     string profileImageUrl = 8;
-    date verifiedAt = 9;
+    string verifiedAt = 9;
 }
 
 message UserVerification {
