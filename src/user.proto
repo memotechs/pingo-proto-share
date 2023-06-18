@@ -75,7 +75,8 @@ message CreateUserResponse {
 
 // User Verification
 message UserVerificationRequest {
-    string verifyToken = 1;
+    string code = 1;
+    string verifyToken = 2;
 }
 message UserVerificationResponse {
     int32 status = 1;
