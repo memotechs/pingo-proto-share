@@ -12,12 +12,12 @@ service AuthService {
 }
 
 message Booking {
-    int64 id = 1;
+    int32 id = 1;
     string bookingNo = 2;
 }
 
 message BookingItem {
-    int64 id = 1;
+    int32 id = 1;
     double price = 2;
     Booking Booking = 3;
 }
@@ -35,7 +35,7 @@ message CreateBookingResponse {
 
 // Update Booking
 message UpdateBookingRequest {
-    int64 id = 1;
+    int32 id = 1;
 }
 
 message UpdateBookingResponse {
@@ -50,7 +50,7 @@ message GetOneBookingByNoRequest {
 }
 // Get Booking by Id
 message GetOneBookingByIdRequest {
-    int64 id = 1;
+    int32 id = 1;
 }
 message GetOneBookingResponse {
     int32 status = 1;
