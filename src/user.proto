@@ -12,6 +12,8 @@ service UserService {
     rpc GetUserByClientId (GetUserByClientIdRequest) returns (GetUserByClientIdResponse) {}
     rpc UserVerification (UserVerificationRequest) returns (UserVerificationResponse) {}
     rpc CreateUser (CreateUserRequest) returns (CreateUserResponse) {}
+    rpc CreateUserByEmail (CreateUserRequest) returns (CreateUserResponse) {}
+    rpc CreateUserByPhone (CreateUserRequest) returns (CreateUserResponse) {}
     rpc ResendVerification (ResendVerificationRequest) returns (ResendVerificationResponse) {}
     rpc VerifyUserRegistration (VerifyUserRegistrationRequest) returns (VerifyUserRegistrationResponse) {}
 }

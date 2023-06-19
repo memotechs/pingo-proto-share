@@ -4,6 +4,8 @@ package auth;
 
 service AuthService {
     rpc Register (RegisterRequest) returns (RegisterResponse) {}
+    rpc RegisterByEmail (RegisterRequest) returns (RegisterResponse) {}
+    rpc RegisterByPhone (RegisterRequest) returns (RegisterResponse) {}
     rpc Login (LoginRequest) returns (TokenResponse) {}
     rpc ValidateToken (ValidateTokenRequest) returns (ValidateTokenResponse) {}
     rpc ValidateRefreshToken (ValidateRefreshTokenRequest) returns (ValidateRefreshTokenResponse) {}
@@ -36,7 +38,7 @@ message ResendUserVerificationResponse {
     int32 status = 1;
     string message = 2;
 }
-  
+
 // Register
 message RegisterRequest {
     string clientId = 1;
