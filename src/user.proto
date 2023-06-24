@@ -16,6 +16,7 @@ service UserService {
     rpc CreateUserByPhone (CreateUserRequest) returns (CreateUserResponse) {}
     rpc ResendVerification (ResendVerificationRequest) returns (ResendVerificationResponse) {}
     rpc VerifyUserRegistration (VerifyUserRegistrationRequest) returns (VerifyUserRegistrationResponse) {}
+    rpc SetUserPassword (SetUserPasswordRequest) returns (SetUserPasswordResponse) {}
 }
 
 message User {
@@ -168,6 +169,17 @@ message ResetPasswordRequest {
     string confirmPassword = 2;
 }
 message ResetPasswordResponse {
+    int32 status = 1;
+    string message = 2;
+}
+
+// Set User Password
+message SetUserPasswordRequest {
+    int32 userId = 1;
+    string password = 2;
+}
+
+message SetUserPasswordResponse {
     int32 status = 1;
     string message = 2;
 }

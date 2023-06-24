@@ -12,7 +12,6 @@ service AuthService {
     rpc RefreshToken (RefreshTokenRequest) returns (TokenResponse) {}
     rpc VerifyUserRegistration (VerifyUserRegistrationRequest) returns (VerifyUserRegistrationResponse) {}
     rpc ResendUserVerification (ResendUserVerificationRequest) returns (ResendUserVerificationResponse) {}
-    rpc SetUserPassword (SetUserPasswordRequest) returns (SetUserPasswordResponse) {}
 }
 
 message User {
@@ -108,17 +107,6 @@ message ValidateRefreshTokenResponse {
     int32 userId = 2;
     int32 sessionId = 3;
     string message = 4;
-}
-
-// Set User Password
-message SetUserPasswordRequest {
-    int32 userId = 1;
-    string password = 2;
-}
-
-message SetUserPasswordResponse {
-    int32 status = 1;
-    string message = 2;
 }
 
 message AccessToken {
