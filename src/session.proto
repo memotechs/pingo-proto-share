@@ -25,6 +25,3 @@ message GetSessionByIdResponse {
     string message = 3;
 }
 
-message UpdateSessionStateBody {
-    int32 state = 1;
-}

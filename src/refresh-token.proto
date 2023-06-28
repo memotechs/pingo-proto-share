@@ -20,7 +20,3 @@ message GetRefreshTokenBySessionIdResponse {
   RefreshToken refreshToken = 2;
   string message = 3;
 }
-
-message UpdateRefreshTokenStateBody {
-  int32 state = 1;
-}

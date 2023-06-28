@@ -125,3 +125,14 @@ message Token {
     int32 userId = 3;
     string type = 4;
 }
+
+
+// Logout
+message LogoutBodyRequest {
+    int32 state = 1;
+}
+
+message LogoutBodyResponse {
+    int32 status = 1;
+    string message = 2;
+}
