@@ -24,3 +24,7 @@ message GetSessionByIdResponse {
     Session session = 2;
     string message = 3;
 }
+
+message UpdateSessionStateBody {
+    int32 state = 1;
+}
