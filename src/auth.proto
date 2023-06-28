@@ -12,6 +12,7 @@ service AuthService {
     rpc RefreshToken (RefreshTokenRequest) returns (TokenResponse) {}
     rpc VerifyUserRegistration (VerifyUserRegistrationRequest) returns (VerifyUserRegistrationResponse) {}
     rpc ResendUserVerification (ResendUserVerificationRequest) returns (ResendUserVerificationResponse) {}
+    rpc Logout (LoginRequest) returns (LogoutResponse) {}
 }
 
 message User {
@@ -127,12 +128,11 @@ message Token {
 }
 
 
-// Logout
-message LogoutBodyRequest {
-    int32 state = 1;
+message LogoutRequest {
+    string sessionId = 1;
 }
 
-message LogoutBodyResponse {
+message LogoutResponse {
     int32 status = 1;
     string message = 2;
 }
