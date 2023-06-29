@@ -12,7 +12,7 @@ service AuthService {
     rpc RefreshToken (RefreshTokenRequest) returns (TokenResponse) {}
     rpc VerifyUserRegistration (VerifyUserRegistrationRequest) returns (VerifyUserRegistrationResponse) {}
     rpc ResendUserVerification (ResendUserVerificationRequest) returns (ResendUserVerificationResponse) {}
-    rpc Logout (LoginRequest) returns (LogoutResponse) {}
+    rpc Logout (LogoutRequest) returns (LogoutResponse) {}
 }
 
 message User {
