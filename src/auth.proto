@@ -84,10 +84,13 @@ message TokenResponse {
     string type = 5;
 }
 message DeviceInfo {
-    optional string ip = 1;
-    optional string device = 2;
-    optional string client = 3;
-    optional string os = 4;
+    optional string ipAddress = 1;
+    optional string browser = 2;
+    optional string deviceName = 3;
+    optional string clientName = 4;
+    optional string clientVersion = 5;
+    optional string osName = 6;
+    optional string osVersion = 7;
 }
 
 // RefreshToken
