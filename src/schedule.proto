@@ -4,12 +4,26 @@ package schedule;
 
 service ScheduleService {
     rpc GetScheduleListWithPagination (GetScheduleListWithPaginationRequest) returns (GetScheduleListWithPaginationResponse) {}
+    rpc GetScheduleDetail (GetScheduleDetailRequest) returns (GetScheduleDetailResponse) {}
 }
-
+// TODO: Add more fields
 message Schedule {}
 
+// TODO: Add more fields
 message ScheduleLine {}
 
+// GetScheduleListWithPagination
 message GetScheduleListWithPaginationRequest {}
-
 message GetScheduleListWithPaginationResponse {}
+
+// GetScheduleDetail
+message GetScheduleDetailRequest {
+    int32 id = 1;
+    string date = 2;
+    int32 merchantId = 3;
+}
+message GetScheduleDetailResponse {
+    int32 status = 1;
+    string message = 2;
+    Schedule schedule = 3;
+}
