@@ -47,7 +47,7 @@ message GetUserByPhoneNumberRequest {
     string phoneNumber = 1;
 }
 message GetUserByEmailRequest {
-    string email = 1;
+    string emailAddress = 1;
 }
 message GetUserByClientIdRequest {
     string clientId = 1;

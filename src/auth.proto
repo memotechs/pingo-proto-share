@@ -81,7 +81,7 @@ message LoginRequest {
     DeviceInfo deviceInfo = 3;
 }
 message LoginByEmailRequest {
-    string email = 1;
+    string emailAddress = 1;
     string password = 2;
     DeviceInfo deviceInfo = 3;
 }
