@@ -7,6 +7,8 @@ service AuthService {
     rpc RegisterByEmail (RegisterRequest) returns (RegisterResponse) {}
     rpc RegisterByPhone (RegisterRequest) returns (RegisterResponse) {}
     rpc Login (LoginRequest) returns (TokenResponse) {}
+    rpc LoginByEmail (LoginByEmailRequest) returns (TokenResponse) {}
+    rpc LoginByPhone (LoginByPhoneRequest) returns (LoginByPhoneResponse) {}
     rpc ValidateToken (ValidateTokenRequest) returns (ValidateTokenResponse) {}
     rpc ValidateRefreshToken (ValidateRefreshTokenRequest) returns (ValidateRefreshTokenResponse) {}
     rpc RefreshToken (RefreshTokenRequest) returns (TokenResponse) {}
@@ -61,6 +63,7 @@ message RegisterResponse {
 message VerifyUserRegistrationRequest {
     string verifyToken = 1;
     string code = 2;
+    DeviceInfo deviceInfo = 3;
 }
 message VerifyUserRegistrationResponse {
     int32 status = 1;
@@ -75,6 +78,20 @@ message LoginRequest {
     string clientId = 1;
     string password = 2;
     DeviceInfo deviceInfo = 3;
+}
+message LoginByEmailRequest {
+    string email = 1;
+    string password = 2;
+    DeviceInfo deviceInfo = 3;
+}
+message LoginByPhoneRequest {
+    string phoneNumber = 1;
+    DeviceInfo deviceInfo = 2;
+}
+message LoginByPhoneResponse {
+    int32 status = 1;
+    string message = 2;
+    UserVerification userVerification = 3;
 }
 message TokenResponse {
     int32 status = 1;

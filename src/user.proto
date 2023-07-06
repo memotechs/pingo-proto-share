@@ -14,6 +14,7 @@ service UserService {
     rpc CreateUser (CreateUserRequest) returns (CreateUserResponse) {}
     rpc CreateUserByEmail (CreateUserRequest) returns (CreateUserResponse) {}
     rpc CreateUserByPhone (CreateUserRequest) returns (CreateUserResponse) {}
+    rpc SendVerification (SendVerificationRequest) returns (SendVerificationResponse) {}
     rpc ResendVerification (ResendVerificationRequest) returns (ResendVerificationResponse) {}
     rpc VerifyUserRegistration (VerifyUserRegistrationRequest) returns (VerifyUserRegistrationResponse) {}
     rpc SetUserPassword (SetUserPasswordRequest) returns (SetUserPasswordResponse) {}
@@ -95,6 +96,16 @@ message UserVerificationRequest {
 message UserVerificationResponse {
     int32 status = 1;
     string message = 2;
+}
+
+// User SendVerification
+message SendVerificationRequest {
+    int32 userId = 1;
+}
+message SendVerificationResponse {
+    int32 status = 1;
+    string message = 2;
+    UserVerification userVerification = 3;
 }
 
 // User ResendVerification
