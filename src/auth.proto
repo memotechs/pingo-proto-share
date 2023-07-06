@@ -12,6 +12,7 @@ service AuthService {
     rpc ValidateToken (ValidateTokenRequest) returns (ValidateTokenResponse) {}
     rpc ValidateRefreshToken (ValidateRefreshTokenRequest) returns (ValidateRefreshTokenResponse) {}
     rpc RefreshToken (RefreshTokenRequest) returns (TokenResponse) {}
+    rpc VerifyUserLogin (VerifyUserRegistrationRequest) returns (VerifyUserRegistrationResponse) {}
     rpc VerifyUserRegistration (VerifyUserRegistrationRequest) returns (VerifyUserRegistrationResponse) {}
     rpc ResendUserVerification (ResendUserVerificationRequest) returns (ResendUserVerificationResponse) {}
     rpc Logout (LogoutRequest) returns (LogoutResponse) {}
