@@ -10,6 +10,8 @@ service UserService {
     rpc ValidateClientId (ValidateClientIdRequest) returns (ValidateClientIdResponse) {}
     rpc UserUpdateProfile (UserUpdateProfileRequest) returns (UserUpdateProfileResponse) {}
     rpc GetUserByClientId (GetUserByClientIdRequest) returns (GetUserByClientIdResponse) {}
+    rpc GetUserByPhoneNumber (GetUserByPhoneNumberRequest) returns (GetUserByClientIdResponse) {}
+    rpc GetUserByEmail (GetUserByEmailRequest) returns (GetUserByClientIdResponse) {}
     rpc UserVerification (UserVerificationRequest) returns (UserVerificationResponse) {}
     rpc CreateUser (CreateUserRequest) returns (CreateUserResponse) {}
     rpc CreateUserByEmail (CreateUserRequest) returns (CreateUserResponse) {}
@@ -40,6 +42,12 @@ message UserVerification {
 }
 
 // GetUserByClientId
+message GetUserByPhoneNumberRequest {
+    string phoneNumber = 1;
+}
+message GetUserByEmailRequest {
+    string email = 1;
+}
 message GetUserByClientIdRequest {
     string clientId = 1;
 }
