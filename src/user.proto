@@ -18,6 +18,7 @@ service UserService {
     rpc CreateUserByPhone (CreateUserRequest) returns (CreateUserResponse) {}
     rpc SendVerification (SendVerificationRequest) returns (SendVerificationResponse) {}
     rpc ResendVerification (ResendVerificationRequest) returns (ResendVerificationResponse) {}
+    rpc VerifyUserLogin (VerifyUserRegistrationRequest) returns (VerifyUserRegistrationResponse) {}
     rpc VerifyUserRegistration (VerifyUserRegistrationRequest) returns (VerifyUserRegistrationResponse) {}
     rpc SetUserPassword (SetUserPasswordRequest) returns (SetUserPasswordResponse) {}
 }
