@@ -7,11 +7,15 @@ service AuthService {
     rpc RegisterByEmail (RegisterRequest) returns (RegisterResponse) {}
     rpc RegisterByPhone (RegisterRequest) returns (RegisterResponse) {}
     rpc Login (LoginRequest) returns (TokenResponse) {}
+    rpc LoginByEmail (LoginByEmailRequest) returns (TokenResponse) {}
+    rpc LoginByPhone (LoginByPhoneRequest) returns (LoginByPhoneResponse) {}
     rpc ValidateToken (ValidateTokenRequest) returns (ValidateTokenResponse) {}
     rpc ValidateRefreshToken (ValidateRefreshTokenRequest) returns (ValidateRefreshTokenResponse) {}
     rpc RefreshToken (RefreshTokenRequest) returns (TokenResponse) {}
+    rpc VerifyUserLogin (VerifyUserRegistrationRequest) returns (VerifyUserRegistrationResponse) {}
     rpc VerifyUserRegistration (VerifyUserRegistrationRequest) returns (VerifyUserRegistrationResponse) {}
     rpc ResendUserVerification (ResendUserVerificationRequest) returns (ResendUserVerificationResponse) {}
+    rpc Logout (LogoutRequest) returns (LogoutResponse) {}
 }
 
 message User {
@@ -60,6 +64,7 @@ message RegisterResponse {
 message VerifyUserRegistrationRequest {
     string verifyToken = 1;
     string code = 2;
+    DeviceInfo deviceInfo = 3;
 }
 message VerifyUserRegistrationResponse {
     int32 status = 1;
@@ -73,6 +78,21 @@ message VerifyUserRegistrationResponse {
 message LoginRequest {
     string clientId = 1;
     string password = 2;
+    DeviceInfo deviceInfo = 3;
+}
+message LoginByEmailRequest {
+    string emailAddress = 1;
+    string password = 2;
+    DeviceInfo deviceInfo = 3;
+}
+message LoginByPhoneRequest {
+    string phoneNumber = 1;
+    DeviceInfo deviceInfo = 2;
+}
+message LoginByPhoneResponse {
+    int32 status = 1;
+    string message = 2;
+    UserVerification userVerification = 3;
 }
 message TokenResponse {
     int32 status = 1;
@@ -80,6 +100,15 @@ message TokenResponse {
     Token token = 3;
     int32 userId = 4;
     string type = 5;
+}
+message DeviceInfo {
+    optional string ipAddress = 1;
+    optional string browser = 2;
+    optional string deviceName = 3;
+    optional string clientName = 4;
+    optional string clientVersion = 5;
+    optional string osName = 6;
+    optional string osVersion = 7;
 }
 
 // RefreshToken
@@ -124,4 +153,14 @@ message Token {
     RefreshToken refreshToken = 2;
     int32 userId = 3;
     string type = 4;
+}
+
+
+message LogoutRequest {
+    string sessionId = 1;
+}
+
+message LogoutResponse {
+    int32 status = 1;
+    string message = 2;
 }
