@@ -12,6 +12,7 @@ service ScheduleService {
     rpc GetUserBookingListWithPagination (GetBookingListWithPaginationRequest) returns (GetBookingListWithPaginationResponse) {}
     // Schedules
     rpc GetScheduleListWithPagination (GetScheduleListWithPaginationRequest) returns (GetScheduleListWithPaginationResponse) {}
+    rpc GetScheduleListDetail (GetScheduleListDetailRequest) returns (GetScheduleListDetailResponse) {}
 }
 
 message Schedule {
@@ -75,6 +76,13 @@ message Vehicle {
   string mediaUrl = 3;
 }
 
+message Media {
+    int32 id = 1;
+    int32 type = 2;
+    bool isDefault = 3;
+    string mediaUrl = 4;
+}
+
 message Price {
   int32 id = 1;
   double amount = 2;
@@ -87,9 +95,37 @@ message Price {
   google.protobuf.Timestamp updatedAt = 11;
 }
 
-message GetScheduleListWithPaginationRequest {}
+message GetScheduleListWithPaginationRequest {
+    int32 perPage = 1;
+    int32 page = 2;
+    int32 fromLocation = 2;
+    int32 toLocation = 4;
+    string date = 5;
+}
+message GetScheduleListWithPaginationResponse {
+    int32 status = 1;
+    string message = 2;
+    ScheduleLinePagination pagination = 3;
+}
 
-message GetScheduleListWithPaginationResponse {}
+message ScheduleLinePagination {
+  repeated ScheduleLine items = 1;
+  int32 page = 2;
+  int32 page_size = 3;
+  int32 total = 4;
+  bool hasNext = 5;
+}
+
+message  GetScheduleListDetailRequest {
+    int32 id = 1;
+    string date = 2;
+    Merchant merchant = 3;
+}
+message  GetScheduleListDetailResponse {
+    int32 status = 1;
+    string message = 2;
+    ScheduleLine schedule = 3;
+}
 
 message Booking {
     int32 id = 1;
