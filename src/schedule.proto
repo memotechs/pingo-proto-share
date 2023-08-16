@@ -128,15 +128,6 @@ message  GetScheduleListDetailResponse {
   int32 page = 8;
 }
 
-message GetScheduleListWithPaginationResponse {
-  int32 current_page = 1;
-  int32 total = 2;
-  int32 per_page = 3;
-  int32 items = 4;
-  bool has_next = 5;
-  repeated ScheduleLine scheduleLines = 6;
-}
-
 message GetScheduleDetailRequest {
   Merchant merchant = 1;
   string date = 2;
