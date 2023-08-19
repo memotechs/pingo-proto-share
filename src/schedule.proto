@@ -12,11 +12,19 @@ service ScheduleService {
   rpc GetOneBookingById (GetOneBookingByNoRequest) returns (GetOneBookingResponse) {}
   rpc GetBookingListWithPagination (GetBookingListWithPaginationRequest) returns (GetBookingListWithPaginationResponse) {}
   rpc GetUserBookingListWithPagination (GetBookingListWithPaginationRequest) returns (GetBookingListWithPaginationResponse) {}
+
   // Schedules
   rpc GetScheduleListWithPagination (GetScheduleListWithPaginationRequest) returns (GetScheduleListWithPaginationResponse) {}
   rpc GetScheduleListDetail (GetScheduleListDetailRequest) returns (GetScheduleListDetailResponse) {}
+
   // Locations
   rpc GetLocationListWithPagination (GetLocationListWithPaginationRequest) returns (GetLocationListWithPaginationResponse) {}
+
+  // Vehicle Types
+  rpc GetVehicleTypeListAutocomplete (GetVehicleTypeListAutocompleteRequest) returns (GetVehicleTypeListAutocompleteResponse) {}
+
+  // Service Types
+  rpc GetServiceTypeListAutocomplete (GetServiceTypeListAutocompleteRequest) returns (GetServiceTypeListAutocompleteResponse) {}
 }
 
 message Schedule {
@@ -112,7 +120,7 @@ message ScheduleLinePagination {
   bool hasNext = 5;
 }
 
-message  GetScheduleListDetailRequest {
+message GetScheduleListDetailRequest {
   int32 id = 1;
   string date = 2;
   Merchant merchant = 3;
@@ -199,8 +207,42 @@ message GetLocationListWithPaginationRequest {
 
 message GetLocationListWithPaginationResponse {
   repeated Location data = 1;
-  int32 limit = 2;
-  int32 offset = 3;
-  int32 total = 4;
-  bool hasNext = 5;
+  int32 page = 2;
+  int32 pageSize = 3;
+  bool hasNext = 4;
+}
+
+// Vehicle Types
+message GetVehicleTypeListAutocompleteRequest {
+  int32 pageSize = 1;
+  int32 page = 2;
+  string query = 3;
+}
+
+message GetVehicleTypeListAutocompleteResponse {
+  repeated VehicleType data = 1;
+  int32 page = 2;
+  int32 pageSize = 3;
+  bool hasNext = 4;
+}
+
+message VehicleType {
+  string name = 1;
+  string icon = 2;
+  string description = 3;
+  ServiceType serviceType = 4;
+}
+
+// Service Types
+message GetServiceTypeListAutocompleteRequest {
+  int32 pageSize = 1;
+  int32 page = 2;
+  string query = 3;
+}
+
+message GetServiceTypeListAutocompleteResponse {
+  repeated ServiceType data = 1;
+  int32 page = 2;
+  int32 pageSize = 3;
+  bool hasNext = 4;
 }
