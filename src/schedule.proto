@@ -100,24 +100,17 @@ message Price {
 }
 
 message GetScheduleListWithPaginationRequest {
-  int32 perPage = 1;
+  int32 pageSize = 1;
   int32 page = 2;
   int32 fromLocation = 3;
   int32 toLocation = 4;
   string date = 5;
 }
 message GetScheduleListWithPaginationResponse {
-  int32 status = 1;
-  string message = 2;
-  ScheduleLinePagination pagination = 3;
-}
-
-message ScheduleLinePagination {
-  repeated ScheduleLine items = 1;
+  repeated ScheduleLine data = 1;
   int32 page = 2;
-  int32 page_size = 3;
-  int32 total = 4;
-  bool hasNext = 5;
+  int32 pageSize = 3;
+  bool hasNext = 4;
 }
 
 message GetScheduleListDetailRequest {
@@ -125,7 +118,7 @@ message GetScheduleListDetailRequest {
   string date = 2;
   Merchant merchant = 3;
 }
-message  GetScheduleListDetailResponse {
+message GetScheduleListDetailResponse {
   int32 status = 1;
   string message = 2;
   ScheduleLine schedule = 3;
