@@ -28,8 +28,8 @@ service ScheduleService {
 }
 
 message Schedule {
-  google.protobuf.Timestamp arrivalAt = 1;
-  google.protobuf.Timestamp departureAt = 2;
+  string arrivalAt = 1;
+  string departureAt = 2;
   int32 id = 3;
   bool isPublished = 4;
   Route route = 5;
@@ -57,7 +57,7 @@ message ScheduleVehicleSeat {
 
 message Seat {
   int32 id = 1;
-  int32 seatNumber = 2;
+  string seatNumber = 2;
 }
 
 message ScheduleLine {
@@ -76,6 +76,7 @@ message ScheduleLine {
   int32 availableSeats = 13;
   int32 totalSeats = 14;
   Schedule schedule = 15;
+  Merchant merchant = 16;
 }
 
 message Location {
@@ -104,9 +105,16 @@ message ServiceType {
 }
 
 message Vehicle {
-  int32 id = 4;
+  int32 id = 1;
   string name = 2;
   string mediaUrl = 3;
+  repeated Facility vehicleFacilities = 4;
+}
+
+message Facility {
+  int32 id = 1;
+  string name = 2;
+  string icon = 3;
 }
 
 message Media {
@@ -132,7 +140,8 @@ message GetScheduleListWithPaginationRequest {
   string date = 5;
   int32 vehicleType = 6;
   int32 serviceType = 7;
-
+  string sortBy = 8;
+  string orderBy = 9;
 }
 message GetScheduleListWithPaginationResponse {
   repeated ScheduleLine data = 1;
@@ -144,17 +153,12 @@ message GetScheduleListWithPaginationResponse {
 message GetScheduleListDetailRequest {
   int32 id = 1;
   string date = 2;
-  Merchant merchant = 3;
+  int32 merchantId = 3;
 }
 message GetScheduleListDetailResponse {
   int32 status = 1;
   string message = 2;
-  ScheduleLine schedule = 3;
-  Merchant merchant = 4;
-  int32 fromLocationId = 5;
-  int32 toLocationId = 6;
-  string date = 7;
-  int32 page = 8;
+  ScheduleLine scheduleLine = 3;
 }
 
 message GetScheduleDetailRequest {
