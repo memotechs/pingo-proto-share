@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-import "google/protobuf/timestamp.proto";
-
 package schedule;
 
 service ScheduleService {
@@ -142,8 +140,16 @@ message GetScheduleListWithPaginationRequest {
   int32 serviceType = 7;
   string sortBy = 8;
   string orderBy = 9;
+  repeated string subDomains = 10;
 }
+
 message GetScheduleListWithPaginationResponse {
+  int32 status = 1;
+  string message = 2;
+  ScheduleListPaginationPayload response = 3;
+}
+
+message ScheduleListPaginationPayload {
   repeated ScheduleLine data = 1;
   int32 page = 2;
   int32 pageSize = 3;
@@ -154,7 +160,9 @@ message GetScheduleListDetailRequest {
   int32 id = 1;
   string date = 2;
   int32 merchantId = 3;
+  repeated string subDomains = 4;
 }
+
 message GetScheduleListDetailResponse {
   int32 status = 1;
   string message = 2;
@@ -228,9 +236,17 @@ message GetLocationListWithPaginationRequest {
   int32 pageSize = 1;
   int32 page = 2;
   string query = 3;
+  repeated int32 includeIds = 4;
+  repeated string subDomains = 5;
 }
 
 message GetLocationListWithPaginationResponse {
+  int32 status = 1;
+  string message = 2;
+  LocationPaginationPayload response = 3;
+}
+
+message LocationPaginationPayload {
   repeated Location data = 1;
   int32 page = 2;
   int32 pageSize = 3;
@@ -242,9 +258,17 @@ message GetVehicleTypeListAutocompleteRequest {
   int32 pageSize = 1;
   int32 page = 2;
   string query = 3;
+  repeated int32 includeIds = 4;
+  repeated string subDomains = 5;
 }
 
 message GetVehicleTypeListAutocompleteResponse {
+  int32 status = 1;
+  string message = 2;
+  VehicleTypeAutocompletePayload response = 3;
+}
+
+message VehicleTypeAutocompletePayload {
   repeated VehicleType data = 1;
   int32 page = 2;
   int32 pageSize = 3;
@@ -263,9 +287,17 @@ message GetServiceTypeListAutocompleteRequest {
   int32 pageSize = 1;
   int32 page = 2;
   string query = 3;
+  repeated int32 includeIds = 4;
+  repeated string subDomains = 5;
 }
 
 message GetServiceTypeListAutocompleteResponse {
+  int32 status = 1;
+  string message = 2;
+  ServiceTypeAutocompletePayload response = 3;
+}
+
+message ServiceTypeAutocompletePayload {
   repeated ServiceType data = 1;
   int32 page = 2;
   int32 pageSize = 3;
