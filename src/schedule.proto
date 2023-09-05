@@ -276,10 +276,11 @@ message VehicleTypeAutocompletePayload {
 }
 
 message VehicleType {
-  string name = 1;
-  string icon = 2;
-  string description = 3;
-  ServiceType serviceType = 4;
+  int32 id = 1;
+  string name = 2;
+  string icon = 3;
+  string description = 4;
+  ServiceType serviceType = 5;
 }
 
 // Service Types
