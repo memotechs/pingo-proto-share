@@ -18,6 +18,9 @@ service ScheduleService {
   // Locations
   rpc GetLocationListWithPagination (GetLocationListWithPaginationRequest) returns (GetLocationListWithPaginationResponse) {}
 
+  // Vehicles
+  rpc GetVehicleListAutocomplete (GetVehicleListAutocompleteRequest) returns (GetVehicleListAutocompleteResponse) {}
+
   // Vehicle Types
   rpc GetVehicleTypeListAutocomplete (GetVehicleTypeListAutocompleteRequest) returns (GetVehicleTypeListAutocompleteResponse) {}
 
@@ -248,6 +251,28 @@ message GetLocationListWithPaginationResponse {
 
 message LocationPaginationPayload {
   repeated Location data = 1;
+  int32 page = 2;
+  int32 pageSize = 3;
+  bool hasNext = 4;
+}
+
+// Vehicles
+message GetVehicleListAutocompleteRequest {
+  int32 pageSize = 1;
+  int32 page = 2;
+  string query = 3;
+  repeated int32 includeIds = 4;
+  repeated string subDomains = 5;
+}
+
+message GetVehicleListAutocompleteResponse {
+  int32 status = 1;
+  string message = 2;
+  VehicleAutocompletePayload response = 3;
+}
+
+message VehicleAutocompletePayload {
+  repeated Vehicle data = 1;
   int32 page = 2;
   int32 pageSize = 3;
   bool hasNext = 4;
