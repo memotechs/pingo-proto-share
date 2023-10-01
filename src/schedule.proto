@@ -139,7 +139,7 @@ message GetScheduleListWithPaginationRequest {
   int32 fromLocation = 3;
   int32 toLocation = 4;
   string date = 5;
-  int32 vehicleType = 6;
+  repeated int32 vehicleTypes = 6;
   int32 serviceType = 7;
   string sortBy = 8;
   string orderBy = 9;
@@ -190,12 +190,46 @@ message GetScheduleDetailResponse {
 message Booking {
   int32 id = 1;
   string bookingNo = 2;
+  int32 status = 3;
+  int32 type = 4;
+  string departureAt = 5;
+  string arrivalAt = 6;
+  string duration = 7;
+  string date = 8;
+  int32 paymentStatus = 10;
+  double subTotal = 11;
+  double discount = 12;
+  double commission = 13;
+  double total = 14;
+  optional string notation = 15;
+  string destination = 16;
+  int32 numberOfSeats = 17;
+  int32 order = 18;
+  PaymentMethod paymentMethod = 19;
+  Merchant merchant = 20;
+  User customer = 21;
+  Vehicle vehicle = 22;
+  Location fromLocation = 23;
+  Location toLocation = 24;
+  repeated BookingItem bookingItems = 25;
+}
+
+message PaymentMethod {
+  int32 id = 1;
+  string name = 2;
+  string logoUrl = 3;
+  int32 type = 4;
+  string description = 5;
 }
 
 message BookingItem {
   int32 id = 1;
-  double price = 2;
-  Booking Booking = 3;
+  int32 status = 2;
+  double amount = 3;
+  string gender = 4;
+  string notation = 5;
+  Seat seat = 6;
+  Price price = 7;
 }
 
 message GetBookingListWithPaginationRequest {}
@@ -203,10 +237,65 @@ message GetBookingListWithPaginationResponse {}
 
 // Create Booking
 message CreateBookingRequest {
-
+  string subDomain = 1;
+  int32 userId = 2;
+  string phoneNumber = 3;
+  optional string emailAddress = 4;
+  int32 paymentMethodId = 5;
+  int32 passengerCount = 6;
+  repeated EachBookingRequest bookings = 7;
 }
-message CreateBookingResponse {
 
+message EachBookingRequest {
+  string date = 1;
+  int32 scheduleLineId = 2;
+  optional string notation = 3;
+  CreateBookingCustomerInfo customer = 4;
+  repeated CreateBookingItem bookingItems = 5;
+}
+
+message CreateBookingCustomerInfo {
+  optional string phoneNumber = 1;
+  optional string firstName = 2;
+  optional string lastName = 3;
+  optional string emailAddress = 4;
+}
+
+message CreateBookingItem {
+  int32 seatId = 1;
+  int32 priceId = 2;
+  string currency = 3;
+  int32 amount = 4;
+  string gender = 5;
+  optional string notation = 6;
+}
+
+message CreateBookingResponse {
+  int32 status = 1;
+  string message = 2;
+  string code = 3;
+  BookingTransactionResponse bookingTransaction = 4;
+}
+
+message BookingTransactionResponse {
+  int32 id = 1;
+  string trxNo = 2;
+  int32 status = 3;
+  double subTotal = 4;
+  double discount = 5;
+  double total = 6;
+  User user = 7;
+  repeated Booking bookings = 8;
+}
+
+message User {
+  int32 id = 1;
+  string clientId = 2;
+  string firstName = 3;
+  string lastName = 4;
+  string phoneNumber = 5;
+  string emailAddress = 6;
+  string profileImageUrl = 7;
 }
 
 // Update Booking
