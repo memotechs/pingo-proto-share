@@ -6,6 +6,7 @@ service ScheduleService {
   // Booking
   rpc CreateBooking (CreateBookingRequest) returns (CreateBookingResponse) {}
   rpc UpdateBooking (CreateBookingRequest) returns (CreateBookingResponse) {}
+  rpc CompleteBooking (CompleteBookingRequest) returns (CompleteBookingResponse) {}
   rpc GetOneBookingByNo (GetOneBookingByNoRequest) returns (GetOneBookingResponse) {}
   rpc GetOneBookingById (GetOneBookingByNoRequest) returns (GetOneBookingResponse) {}
   rpc GetBookingListWithPagination (GetBookingListWithPaginationRequest) returns (GetBookingListWithPaginationResponse) {}
@@ -307,6 +308,19 @@ message UpdateBookingResponse {
   int32 status = 1;
   Booking booking = 2;
   string message = 3;
+}
+
+// Complete Booking
+message CompleteBookingRequest {
+  string subDomain = 1;
+  int32 bookingTransactionId = 2;
+}
+
+message CompleteBookingResponse {
+  int32 status = 1;
+  string message = 2;
+  string code = 3;
+  BookingTransactionResponse bookingTransaction = 4;
 }
 
 // Get Booking By booking number
