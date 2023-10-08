@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package merchant;
+
+message Merchant {
+    int32 id = 1;
+    string logoUrl  = 2;
+    string name  = 3;
+    string userName  = 4;
+    string subDomain  = 5;
+}

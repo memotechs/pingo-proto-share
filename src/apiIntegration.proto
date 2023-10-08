@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package apiIntegration;
+
+import "merchant.proto";
+
+message APIIntegration {
+    int32 id = 1;
+    string name = 2;
+    string apiKey = 3;
+    string apiSecret = 4;
+    int32 status = 5;
+    string allowHosts = 6;
+    string expiredAt = 7;
+    merchant.Merchant ownerMerchant = 8;
+    repeated merchant.Merchant merchants = 9;
+}
