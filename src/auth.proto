@@ -175,6 +175,6 @@ message GetAPIIntegrationRequest {
 }
 message GetAPIIntegrationResponse {
     int32 status = 1;
-    apiIntegration.APIIntegration = 2;
+    apiIntegration.APIIntegration apiIntegration = 2;
     string message = 3;
 }
