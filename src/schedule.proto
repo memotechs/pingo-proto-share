@@ -20,6 +20,9 @@ service ScheduleService {
   // Locations
   rpc GetLocationListWithPagination (GetLocationListWithPaginationRequest) returns (GetLocationListWithPaginationResponse) {}
 
+  // Prices
+  rpc GetPriceListAutocomplete (GetPriceListAutocompleteRequest) returns (GetPriceListAutocompleteResponse) {}
+
   // Vehicles
   rpc GetVehicleListAutocomplete (GetVehicleListAutocompleteRequest) returns (GetVehicleListAutocompleteResponse) {}
 
@@ -60,7 +63,6 @@ message GetScheduleListDetailRequest {
   int32 id = 1;
   string date = 2;
   int32 merchantId = 3;
-  repeated string subDomains = 4;
 }
 
 message GetScheduleListDetailResponse {
@@ -213,6 +215,28 @@ message GetLocationListWithPaginationResponse {
 
 message LocationPaginationPayload {
   repeated Location data = 1;
+  int32 page = 2;
+  int32 pageSize = 3;
+  bool hasNext = 4;
+}
+
+// Prices
+message GetPriceListAutocompleteRequest {
+  int32 pageSize = 1;
+  int32 page = 2;
+  string query = 3;
+  repeated int32 includeIds = 4;
+  repeated string subDomains = 5;
+}
+
+message GetPriceListAutocompleteResponse {
+  int32 status = 1;
+  string message = 2;
+  PriceAutocompletePayload response = 3;
+}
+
+message PriceAutocompletePayload {
+  repeated Price data = 1;
   int32 page = 2;
   int32 pageSize = 3;
   bool hasNext = 4;
@@ -396,6 +420,7 @@ message Price {
   bool isDefault = 3;
   string name = 4;
   int32 order = 5;
+  bool isForeigner = 6;
 }
 
 message Booking {
