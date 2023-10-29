@@ -31,6 +31,9 @@ service ScheduleService {
 
   // Service Types
   rpc GetServiceTypeListAutocomplete (GetServiceTypeListAutocompleteRequest) returns (GetServiceTypeListAutocompleteResponse) {}
+
+  // Payment Methods
+  rpc GetPaymentMethodList (GetPaymentMethodListRequest) returns (GetPaymentMethodListResponse) {}
 }
 
 message GetScheduleListWithPaginationRequest {
@@ -306,6 +309,17 @@ message ServiceTypeAutocompletePayload {
   int32 page = 2;
   int32 pageSize = 3;
   bool hasNext = 4;
+}
+
+// Payment Methods
+message GetPaymentMethodListRequest {
+  string subDomain = 1;
+}
+
+message GetPaymentMethodListResponse {
+  int32 status = 1;
+  string message = 2;
+  repeated PaymentMethod paymentMethods = 3;
 }
 
 // Models
