@@ -5,7 +5,6 @@ package schedule;
 service ScheduleService {
   // Booking
   rpc CreateBooking (CreateBookingRequest) returns (CreateBookingResponse) {}
-  rpc CompleteBooking (CompleteBookingRequest) returns (CompleteBookingResponse) {}
   rpc GetBookingByNo (GetBookingByNoRequest) returns (GetBookingResponse) {}
   rpc GetBookingById (GetBookingByIdRequest) returns (GetBookingResponse) {}
   rpc GetBookingListWithPagination (GetBookingListWithPaginationRequest) returns (GetBookingListWithPaginationResponse) {}
@@ -125,7 +124,6 @@ message CreateBookingCustomerInfo {
 message CreateBookingItem {
   int32 seatId = 1;
   int32 priceId = 2;
-  double amount = 3;
   string gender = 4;
   optional string notation = 5;
 }
@@ -154,20 +152,6 @@ message BookingTransactionResponse {
   User user = 7;
   repeated Booking bookings = 8;
   string currency = 9;
-}
-
-// Complete Booking
-message CompleteBookingRequest {
-  string subDomain = 1;
-  string bookingTrxNo = 2;
-}
-
-message CompleteBookingResponse {
-  int32 status = 1;
-  string message = 2;
-  string code = 3;
-  BookingTransactionResponse bookingTransaction = 4;
-  Payment payment = 5;
 }
 
 // Get Booking
