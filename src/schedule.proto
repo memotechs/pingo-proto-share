@@ -419,6 +419,7 @@ message Price {
   string name = 4;
   int32 order = 5;
   bool isForeigner = 6;
+  int32 priceId = 7;
 }
 
 message Booking {
