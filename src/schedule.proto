@@ -46,6 +46,12 @@ message GetScheduleListWithPaginationRequest {
   string sortBy = 8;
   string orderBy = 9;
   repeated string subDomains = 10;
+  repeated Passenger passengers = 11;
+}
+
+message Passenger {
+  int32 priceId = 1;
+  int32 quantity = 2;
 }
 
 message GetScheduleListWithPaginationResponse {
