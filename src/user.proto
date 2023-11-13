@@ -7,6 +7,7 @@ service UserService {
     rpc ForgetPassword (ForgetPasswordRequest) returns (ForgetPasswordResponse) {}
     rpc ResetPassword (ResetPasswordRequest) returns (ResetPasswordResponse) {}
     rpc UserProfile (UserProfileRequest) returns (UserProfileResponse) {}
+    rpc EditUserProfile (EditUserProfileRequest) returns (EditUserProfileResponse) {}
     rpc ValidateClientId (ValidateClientIdRequest) returns (ValidateClientIdResponse) {}
     rpc UserUpdateProfile (UserUpdateProfileRequest) returns (UserUpdateProfileResponse) {}
     rpc GetUserByClientId (GetUserByClientIdRequest) returns (GetUserByClientIdResponse) {}
@@ -134,6 +135,23 @@ message UserProfileResponse {
     int32 status = 1;
     User user = 2;
     string message = 3;
+}
+
+// Edit User Profile
+message EditUserProfileRequest {
+    int32 userId = 1;
+    string firstName = 2;
+    string lastName = 3;
+    string profileImageUrl = 4;
+    string emailAddress = 5;
+    string phoneNumber = 6;
+}
+
+message EditUserProfileResponse {
+    int32 status = 1;
+    string message = 2;
+    string errorCode = 3;
+    User user = 4;
 }
 
 // User Update Profile
