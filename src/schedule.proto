@@ -14,14 +14,14 @@ service ScheduleService {
   rpc CheckPaymentStatus (CheckPaymentStatusRequest) returns (CheckPaymentStatusResponse) {}
 
   // Schedules
-  rpc GetScheduleListWithPagination (GetScheduleListWithPaginationRequest) returns (GetScheduleListWithPaginationResponse) {}
-  rpc GetScheduleListDetail (GetScheduleListDetailRequest) returns (GetScheduleListDetailResponse) {}
+  rpc GetScheduleList (GetScheduleListRequest) returns (GetScheduleListResponse) {}
+  rpc GetScheduleDetail (GetScheduleDetailRequest) returns (GetScheduleDetailResponse) {}
 
   // Locations
   rpc GetLocationListWithPagination (GetLocationListWithPaginationRequest) returns (GetLocationListWithPaginationResponse) {}
 
   // Prices
-  rpc GetPriceListAutocomplete (GetPriceListAutocompleteRequest) returns (GetPriceListAutocompleteResponse) {}
+  rpc GetPriceList (GetPriceListRequest) returns (GetPriceListResponse) {}
 
   // Vehicles
   rpc GetVehicleListAutocomplete (GetVehicleListAutocompleteRequest) returns (GetVehicleListAutocompleteResponse) {}
@@ -36,7 +36,7 @@ service ScheduleService {
   rpc GetPaymentMethodList (GetPaymentMethodListRequest) returns (GetPaymentMethodListResponse) {}
 }
 
-message GetScheduleListWithPaginationRequest {
+message GetScheduleListRequest {
   int32 pageSize = 1;
   int32 page = 2;
   int32 fromLocation = 3;
@@ -55,26 +55,19 @@ message Passenger {
   int32 quantity = 2;
 }
 
-message GetScheduleListWithPaginationResponse {
+message GetScheduleListResponse {
   int32 status = 1;
   string message = 2;
-  ScheduleListPaginationPayload response = 3;
+  repeated ScheduleLine scheduleLines = 3;
 }
 
-message ScheduleListPaginationPayload {
-  repeated ScheduleLine data = 1;
-  int32 page = 2;
-  int32 pageSize = 3;
-  bool hasNext = 4;
-}
-
-message GetScheduleListDetailRequest {
+message GetScheduleDetailRequest {
   int32 id = 1;
   string date = 2;
   int32 merchantId = 3;
 }
 
-message GetScheduleListDetailResponse {
+message GetScheduleDetailResponse {
   int32 status = 1;
   string message = 2;
   ScheduleLine scheduleLine = 3;
@@ -211,6 +204,7 @@ message CheckPaymentStatusResponse {
   int32 status = 1;
   string message = 2;
   Payment payment = 3;
+  int32 paymentStatus = 4;
 }
 
 // Locations
@@ -236,7 +230,7 @@ message LocationPaginationPayload {
 }
 
 // Prices
-message GetPriceListAutocompleteRequest {
+message GetPriceListRequest {
   int32 pageSize = 1;
   int32 page = 2;
   string query = 3;
@@ -244,17 +238,10 @@ message GetPriceListAutocompleteRequest {
   repeated string subDomains = 5;
 }
 
-message GetPriceListAutocompleteResponse {
+message GetPriceListResponse {
   int32 status = 1;
   string message = 2;
-  PriceAutocompletePayload response = 3;
-}
-
-message PriceAutocompletePayload {
-  repeated Price data = 1;
-  int32 page = 2;
-  int32 pageSize = 3;
-  bool hasNext = 4;
+  repeated Price prices = 3;
 }
 
 // Vehicles
