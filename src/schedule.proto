@@ -37,17 +37,15 @@ service ScheduleService {
 }
 
 message GetScheduleListRequest {
-  int32 pageSize = 1;
-  int32 page = 2;
-  int32 fromLocation = 3;
-  int32 toLocation = 4;
-  string date = 5;
-  repeated int32 vehicleTypes = 6;
-  int32 serviceType = 7;
-  string sortBy = 8;
-  string orderBy = 9;
-  repeated string subDomains = 10;
-  repeated Passenger passengers = 11;
+  int32 fromLocation = 1;
+  int32 toLocation = 2;
+  string date = 3;
+  repeated int32 vehicleTypes = 4;
+  int32 serviceType = 5;
+  string sortBy = 6;
+  string orderBy = 7;
+  repeated string subDomains = 8;
+  repeated Passenger passengers = 9;
 }
 
 message Passenger {
@@ -231,11 +229,7 @@ message LocationPaginationPayload {
 
 // Prices
 message GetPriceListRequest {
-  int32 pageSize = 1;
-  int32 page = 2;
-  string query = 3;
-  repeated int32 includeIds = 4;
-  repeated string subDomains = 5;
+  repeated string subDomains = 1;
 }
 
 message GetPriceListResponse {
