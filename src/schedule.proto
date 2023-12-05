@@ -195,7 +195,7 @@ message GetBookingResponse {
 // Payment
 message CheckPaymentStatusRequest {
   string subDomain = 1;
-  string bookingTrxNo = 2;
+  string paymentNo = 2;
 }
 
 message CheckPaymentStatusResponse {
