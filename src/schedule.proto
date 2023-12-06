@@ -92,6 +92,7 @@ message GetBookingListWithPaginationPayload {
   int32 page = 2;
   int32 pageSize = 3;
   bool hasNext = 4;
+  int32 totalPages = 5;
 }
 
 // Create Booking
