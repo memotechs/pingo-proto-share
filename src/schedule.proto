@@ -366,6 +366,7 @@ message ScheduleLine {
   int32 totalSeats = 14;
   Schedule schedule = 15;
   Merchant merchant = 16;
+  double totalAmount = 17;
 }
 
 message Location {
