@@ -22,6 +22,7 @@ service UserService {
     rpc VerifyUserLogin (VerifyUserRegistrationRequest) returns (VerifyUserRegistrationResponse) {}
     rpc VerifyUserRegistration (VerifyUserRegistrationRequest) returns (VerifyUserRegistrationResponse) {}
     rpc SetUserPassword (SetUserPasswordRequest) returns (SetUserPasswordResponse) {}
+    rpc ChangeUserPassword (ChangeUserPasswordRequest) returns (ChangeUserPasswordResponse) {}
 }
 
 message User {
@@ -220,4 +221,17 @@ message SetUserPasswordRequest {
 message SetUserPasswordResponse {
     int32 status = 1;
     string message = 2;
+}
+
+// Change User Password
+message ChangeUserPasswordRequest {
+    int32 userId = 1;
+    string oldPassword = 2;
+    string newPassword = 3;
+}
+
+message ChangeUserPasswordResponse {
+    int32 status = 1;
+    string message = 2;
+    int32 errorCode = 3;
 }
