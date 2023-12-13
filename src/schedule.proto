@@ -156,10 +156,11 @@ message UpdateBookingResponse {
 
 message PaymentResponse {
   string paymentNo = 1;
-  string html = 2;
-  string paymentKey = 3;
-  bool isDeeplink = 4;
-  string deeplink = 5;
+  string paymentKey = 2;
+  string html = 3;
+  string deeplink = 4;
+  optional string successUrl = 5;
+  optional string cancelUrl = 6;
 }
 
 message BookingTransactionResponse {
