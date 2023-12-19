@@ -114,10 +114,9 @@ message EachBookingRequest {
 }
 
 message CreateBookingCustomerInfo {
-  optional string phoneNumber = 1;
-  optional string firstName = 2;
-  optional string lastName = 3;
-  optional string emailAddress = 4;
+  optional string name = 1;
+  optional string phoneNumber = 2;
+  optional string emailAddress = 3;
 }
 
 message CreateBookingItem {
