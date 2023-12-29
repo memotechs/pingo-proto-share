@@ -458,6 +458,7 @@ message Booking {
   Location fromLocation = 23;
   Location toLocation = 24;
   repeated BookingItem bookingItems = 25;
+  BookingPassenger passenger = 26;
 }
 
 message BookingItem {
@@ -468,6 +469,13 @@ message BookingItem {
   string notation = 5;
   Seat seat = 6;
   Price price = 7;
+  BookingPassenger passenger = 8;
+}
+
+message BookingPassenger {
+  string name = 1;
+  string phoneNumber = 2;
+  string emailAddress = 3;
 }
 
 message PaymentMethod {
