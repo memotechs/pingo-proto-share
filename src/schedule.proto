@@ -49,8 +49,9 @@ message GetScheduleListRequest {
 }
 
 message Passenger {
-  int32 priceId = 1;
-  int32 quantity = 2;
+  int32 quantity = 1;
+  int32 priceId = 2;
+  int32 nationalityId = 3;
 }
 
 message GetScheduleListResponse {
