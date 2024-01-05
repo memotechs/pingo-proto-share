@@ -237,6 +237,7 @@ message GetPriceListResponse {
   int32 status = 1;
   string message = 2;
   repeated Price prices = 3;
+  repeated Nationality nationalities = 4;
 }
 
 // Vehicles
@@ -431,6 +432,12 @@ message Price {
   int32 order = 5;
   bool isForeigner = 6;
   int32 priceId = 7;
+}
+
+message Nationality {
+  int32 id = 1;
+  string name = 2;
+  string description = 3;
 }
 
 message Booking {
