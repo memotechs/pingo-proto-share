@@ -471,6 +471,9 @@ message Booking {
   Location toLocation = 24;
   repeated BookingItem bookingItems = 25;
   BookingPassenger passenger = 26;
+  string departureDate = 27;
+  string arrivalDate = 28;
+  string createdAt = 29;
 }
 
 message BookingItem {
