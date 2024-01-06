@@ -104,6 +104,7 @@ message CreateBookingRequest {
   int32 paymentMethodId = 4;
   int32 passengerCount = 5;
   repeated EachBookingRequest bookings = 6;
+  string tripType = 7;
 }
 
 message EachBookingRequest {
@@ -123,6 +124,7 @@ message CreateBookingCustomerInfo {
 message CreateBookingItem {
   int32 seatId = 1;
   int32 priceId = 2;
+  int32 nationalityId = 3;
   string gender = 4;
   optional string notation = 5;
 }
