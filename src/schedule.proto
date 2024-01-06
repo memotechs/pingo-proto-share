@@ -434,7 +434,7 @@ message Price {
   bool isForeigner = 6;
   int32 priceId = 7;
   Nationality nationality = 8;
-  repeated Price children = 9;
+  repeated Price prices = 9;
 }
 
 message Nationality {
