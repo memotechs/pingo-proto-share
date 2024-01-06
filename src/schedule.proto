@@ -482,6 +482,7 @@ message BookingItem {
   Seat seat = 6;
   Price price = 7;
   BookingPassenger passenger = 8;
+  Nationality nationality = 9;
 }
 
 message BookingPassenger {
