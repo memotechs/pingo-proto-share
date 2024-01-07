@@ -42,6 +42,7 @@ message UserVerification {
 // ResendUserVerification
 message ResendUserVerificationRequest {
     string verifyToken = 1;
+    int32 merchantId = 2;
 }
 message ResendUserVerificationResponse {
     int32 status = 1;
@@ -57,6 +58,7 @@ message RegisterRequest {
     string profileImageUrl = 5;
     string phoneNumber = 6;
     string password = 7;
+    int32 merchantId = 8;
 }
 message RegisterResponse {
     int32 status = 1;
@@ -71,6 +73,7 @@ message VerifyUserRegistrationRequest {
     string code = 2;
     common.DeviceInfo deviceInfo = 3;
     string subDomain = 4;
+    int32 merchantId = 5;
 }
 message VerifyUserRegistrationResponse {
     int32 status = 1;
@@ -96,6 +99,7 @@ message LoginByEmailRequest {
 message LoginByPhoneRequest {
     string phoneNumber = 1;
     common.DeviceInfo deviceInfo = 2;
+    int32 merchantId = 3;
 }
 message LoginByPhoneResponse {
     int32 status = 1;
