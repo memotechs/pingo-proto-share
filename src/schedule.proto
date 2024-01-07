@@ -314,7 +314,7 @@ message ServiceTypeAutocompletePayload {
 // Payment Methods
 message GetPaymentMethodListRequest {
   string subDomain = 1;
-  common.ApiHeader apiHeader = 2;
+  common.ApiRequestHeader requestHeader = 2;
 }
 
 message GetPaymentMethodListResponse {
