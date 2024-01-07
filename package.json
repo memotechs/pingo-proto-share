@@ -1,6 +1,6 @@
 {
   "name": "mm-proto-share",
-  "version": "0.0.81",
+  "version": "0.0.82",
   "description": "pingo proto share",
   "author": "Mesa SOT",
   "main": "index.js",
