@@ -90,6 +90,7 @@ message CreateUserRequest {
     string lastName = 5;
     string password = 6;
     string profileImageUrl = 7;
+    int32 merchantId = 8;
 }
 
 message CreateUserResponse {
