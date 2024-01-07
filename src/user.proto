@@ -111,7 +111,7 @@ message UserVerificationResponse {
 // User SendVerification
 message SendVerificationRequest {
     int32 userId = 1;
-    string merchantId = 2;
+    int32 merchantId = 2;
 }
 message SendVerificationResponse {
     int32 status = 1;
@@ -122,7 +122,7 @@ message SendVerificationResponse {
 // User ResendVerification
 message ResendVerificationRequest {
     string verifyToken = 1;
-    string merchantId = 2;
+    int32 merchantId = 2;
 }
 message ResendVerificationResponse {
     int32 status = 1;
