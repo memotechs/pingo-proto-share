@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package schedule;
 
+import "common.proto";
+
 service ScheduleService {
   // Booking
   rpc CreateBooking (CreateBookingRequest) returns (CreateBookingResponse) {}
@@ -312,6 +314,7 @@ message ServiceTypeAutocompletePayload {
 // Payment Methods
 message GetPaymentMethodListRequest {
   string subDomain = 1;
+  common.ApiHeader apiHeader = 2;
 }
 
 message GetPaymentMethodListResponse {

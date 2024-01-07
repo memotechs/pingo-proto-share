@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package common;
+
+message ApiRequestHeader {
+  DeviceInfo deviceInfo = 1;
+  string platform = 2;
+  string osType = 3;
+  optional string appVersion = 4;
+}
+
+message DeviceInfo {
+  optional string ipAddress = 1;
+  optional string browser = 2;
+  optional string deviceName = 3;
+  optional string clientName = 4;
+  optional string clientVersion = 5;
+  optional string osName = 6;
+  optional string osVersion = 7;
+  optional string deviceId = 8;
+}
