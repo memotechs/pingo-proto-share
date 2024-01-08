@@ -60,6 +60,7 @@ message GetScheduleListResponse {
   int32 status = 1;
   string message = 2;
   repeated ScheduleLine scheduleLines = 3;
+  optional string errorCode = 4;
 }
 
 message GetScheduleDetailRequest {
@@ -72,6 +73,7 @@ message GetScheduleDetailResponse {
   int32 status = 1;
   string message = 2;
   ScheduleLine scheduleLine = 3;
+  optional string errorCode = 4;
 }
 
 message GetBookingListWithPaginationRequest {
@@ -88,6 +90,7 @@ message GetBookingListWithPaginationResponse {
   int32 status = 1;
   string message = 2;
   GetBookingListWithPaginationPayload response = 3;
+  optional string errorCode = 4;
 }
 
 message GetBookingListWithPaginationPayload {
@@ -134,7 +137,7 @@ message CreateBookingItem {
 message CreateBookingResponse {
   int32 status = 1;
   string message = 2;
-  string code = 3;
+  optional string errorCode = 3;
   BookingTransactionResponse bookingTransaction = 4;
   PaymentResponse payment = 5;
 }
@@ -153,7 +156,7 @@ message UpdateBookingRequest {
 message UpdateBookingResponse {
   int32 status = 1;
   string message = 2;
-  string code = 3;
+  optional string errorCode = 3;
   BookingTransactionResponse bookingTransaction = 4;
   PaymentResponse payment = 5;
 }
@@ -196,6 +199,7 @@ message GetBookingResponse {
   int32 status = 1;
   string message = 2;
   Booking booking = 3;
+  optional string errorCode = 4;
 }
 
 // Payment
@@ -209,6 +213,7 @@ message CheckPaymentStatusResponse {
   string message = 2;
   Payment payment = 3;
   int32 paymentStatus = 4;
+  optional string errorCode = 5;
 }
 
 // Locations
@@ -224,6 +229,7 @@ message GetLocationListWithPaginationResponse {
   int32 status = 1;
   string message = 2;
   LocationPaginationPayload response = 3;
+  optional string errorCode = 4;
 }
 
 message LocationPaginationPayload {
@@ -243,6 +249,7 @@ message GetPriceListResponse {
   string message = 2;
   repeated Price prices = 3;
   repeated Nationality nationalities = 4;
+  optional string errorCode = 5;
 }
 
 // Vehicles
@@ -258,6 +265,7 @@ message GetVehicleListAutocompleteResponse {
   int32 status = 1;
   string message = 2;
   VehicleAutocompletePayload response = 3;
+  optional string errorCode = 4;
 }
 
 message VehicleAutocompletePayload {
@@ -280,6 +288,7 @@ message GetVehicleTypeListAutocompleteResponse {
   int32 status = 1;
   string message = 2;
   VehicleTypeAutocompletePayload response = 3;
+  optional string errorCode = 4;
 }
 
 message VehicleTypeAutocompletePayload {
@@ -302,6 +311,7 @@ message GetServiceTypeListAutocompleteResponse {
   int32 status = 1;
   string message = 2;
   ServiceTypeAutocompletePayload response = 3;
+  optional string errorCode = 4;
 }
 
 message ServiceTypeAutocompletePayload {
@@ -321,6 +331,7 @@ message GetPaymentMethodListResponse {
   int32 status = 1;
   string message = 2;
   repeated PaymentMethod paymentMethods = 3;
+  optional string errorCode = 4;
 }
 
 // Models

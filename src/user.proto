@@ -57,6 +57,7 @@ message GetUserByClientIdResponse {
     int32 status = 1;
     User user = 2;
     string message = 3;
+    optional string errorCode = 4;
 }
 
 // VerifyUserVerification
@@ -68,6 +69,7 @@ message VerifyUserVerificationResponse {
     int32 status = 1;
     string message = 2;
     UserVerification userVerification = 3;
+    optional string errorCode = 4;
 }
 
 // VerifyUserRegistration
@@ -79,6 +81,7 @@ message VerifyUserRegistrationResponse {
     int32 status = 1;
     string message = 2;
     UserVerification userVerification = 3;
+    optional string errorCode = 4;
 }
 
 // Create User
@@ -97,6 +100,7 @@ message CreateUserResponse {
     int32 status = 1;
     UserVerification userVerification = 2;
     string message = 3;
+    optional string errorCode = 4;
 }
 
 // User Verification
@@ -107,6 +111,7 @@ message UserVerificationRequest {
 message UserVerificationResponse {
     int32 status = 1;
     string message = 2;
+    optional string errorCode = 3;
 }
 
 // User SendVerification
@@ -118,6 +123,7 @@ message SendVerificationResponse {
     int32 status = 1;
     string message = 2;
     UserVerification userVerification = 3;
+    optional string errorCode = 4;
 }
 
 // User ResendVerification
@@ -128,6 +134,7 @@ message ResendVerificationRequest {
 message ResendVerificationResponse {
     int32 status = 1;
     string message = 2;
+    optional string errorCode = 3;
 }
 
 // User Profile
@@ -138,6 +145,7 @@ message UserProfileResponse {
     int32 status = 1;
     User user = 2;
     string message = 3;
+    optional string errorCode = 4;
 }
 
 // Edit User Profile
@@ -153,7 +161,7 @@ message EditUserProfileRequest {
 message EditUserProfileResponse {
     int32 status = 1;
     string message = 2;
-    string errorCode = 3;
+    optional string errorCode = 3;
     User user = 4;
 }
 
@@ -172,6 +180,7 @@ message UserUpdateProfileResponse {
     int32 status = 1;
     User user = 2;
     string message = 3;
+    optional string errorCode = 4;
 }
 
 // ValidateClientId
@@ -182,6 +191,7 @@ message ValidateClientIdResponse {
     int32 status = 1;
     int32 userId = 2;
     string message = 3;
+    optional string errorCode = 4;
 }
 
 // Change Password
@@ -194,7 +204,7 @@ message ChangePasswordRequest {
 message ChangePasswordResponse {
     int32 status = 1;
     string message = 2;
-    int32 errorCode = 3;
+    optional string errorCode = 3;
 }
 
 // Forget Password
@@ -204,6 +214,7 @@ message ForgetPasswordRequest {
 message ForgetPasswordResponse {
     int32 status = 1;
     string message = 2;
+    optional string errorCode = 3;
 }
 
 // Reset Password
@@ -214,6 +225,7 @@ message ResetPasswordRequest {
 message ResetPasswordResponse {
     int32 status = 1;
     string message = 2;
+    optional string errorCode = 3;
 }
 
 // Set User Password
@@ -225,4 +237,5 @@ message SetUserPasswordRequest {
 message SetUserPasswordResponse {
     int32 status = 1;
     string message = 2;
+    optional string errorCode = 3;
 }
