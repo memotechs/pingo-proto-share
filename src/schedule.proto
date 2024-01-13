@@ -110,6 +110,7 @@ message CreateBookingRequest {
   int32 passengerCount = 5;
   repeated EachBookingRequest bookings = 6;
   string tripType = 7;
+  common.ApiRequestHeader requestHeader = 8;
 }
 
 message EachBookingRequest {
