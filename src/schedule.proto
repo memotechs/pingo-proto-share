@@ -152,6 +152,7 @@ message UpdateBookingRequest {
   int32 passengerCount = 5;
   repeated EachBookingRequest bookings = 6;
   string bookingTrxNo = 7;
+  common.ApiRequestHeader requestHeader = 8;
 }
 
 message UpdateBookingResponse {
