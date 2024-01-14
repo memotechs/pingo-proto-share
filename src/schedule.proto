@@ -139,8 +139,8 @@ message CreateBookingResponse {
   int32 status = 1;
   string message = 2;
   optional string errorCode = 3;
-  BookingTransactionResponse bookingTransaction = 4;
-  PaymentResponse payment = 5;
+  optional BookingTransactionResponse bookingTransaction = 4;
+  optional PaymentResponse payment = 5;
 }
 
 // Update Booking
@@ -159,8 +159,8 @@ message UpdateBookingResponse {
   int32 status = 1;
   string message = 2;
   optional string errorCode = 3;
-  BookingTransactionResponse bookingTransaction = 4;
-  PaymentResponse payment = 5;
+  optional BookingTransactionResponse bookingTransaction = 4;
+  optional PaymentResponse payment = 5;
 }
 
 message PaymentResponse {
