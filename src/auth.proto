@@ -112,7 +112,7 @@ message LoginByPhoneResponse {
 message LoginBySocialRequest {
     string subDomain = 1;
     common.DeviceInfo deviceInfo = 2;
-    int32 socialType = 3;
+    string socialType = 3;
     string accessToken = 4;
     optional SocialAdditionalData additionalData = 5;
 }
