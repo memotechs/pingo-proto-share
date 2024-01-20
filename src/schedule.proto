@@ -401,6 +401,16 @@ message ScheduleLine {
   Schedule schedule = 15;
   Merchant merchant = 16;
   double totalAmount = 17;
+  Stop startStop = 18;
+  Stop endStop = 19;
+}
+
+message Stop {
+  int32 id = 1;
+  string name = 2;
+  string address = 3;
+  double latitude = 4;
+  double longitude = 5;
 }
 
 message Location {
