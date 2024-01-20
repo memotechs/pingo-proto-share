@@ -12,6 +12,7 @@ service AuthService {
     rpc Login (LoginRequest) returns (TokenResponse) {}
     rpc LoginByEmail (LoginByEmailRequest) returns (TokenResponse) {}
     rpc LoginByPhone (LoginByPhoneRequest) returns (LoginByPhoneResponse) {}
+    rpc LoginBySocial (LoginBySocialRequest) returns (LoginBySocialResponse) {}
     rpc ValidateToken (ValidateTokenRequest) returns (ValidateTokenResponse) {}
     rpc ValidateRefreshToken (ValidateRefreshTokenRequest) returns (ValidateRefreshTokenResponse) {}
     rpc RefreshToken (RefreshTokenRequest) returns (TokenResponse) {}
@@ -107,6 +108,24 @@ message LoginByPhoneResponse {
     string message = 2;
     UserVerification userVerification = 3;
     optional string errorCode = 4;
+}
+message LoginBySocialRequest {
+    string subDomain = 1;
+    common.DeviceInfo deviceInfo = 2;
+    int32 socialType = 3;
+    string accessToken = 4;
+    optional SocialAdditionalData additionalData = 5;
+}
+message SocialAdditionalData {
+    optional string firstName = 1;
+    optional string lastName = 2;
+    optional string email = 3;
+}
+message LoginBySocialResponse {
+    int32 status = 1;
+    string message = 2;
+    optional string errorCode = 3;
+    Token token = 4;
 }
 message TokenResponse {
     int32 status = 1;
