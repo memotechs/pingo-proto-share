@@ -97,6 +97,7 @@ message LoginByEmailRequest {
     string password = 2;
     common.DeviceInfo deviceInfo = 3;
     string subDomain = 4;
+    int32 merchantId = 5;
 }
 message LoginByPhoneRequest {
     string phoneNumber = 1;
