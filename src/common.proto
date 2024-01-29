@@ -7,6 +7,7 @@ message ApiRequestHeader {
   string platform = 2;
   string osType = 3;
   optional string appVersion = 4;
+  optional int64 apiIntegrationId = 5;
 }
 
 message DeviceInfo {
