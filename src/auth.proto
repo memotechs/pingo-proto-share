@@ -177,7 +177,6 @@ message Token {
     string type = 4;
 }
 
-
 message LogoutRequest {
     string sessionId = 1;
 }

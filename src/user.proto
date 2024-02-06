@@ -13,6 +13,7 @@ service UserService {
     rpc GetUserByClientId (GetUserByClientIdRequest) returns (GetUserByClientIdResponse) {}
     rpc GetUserByPhoneNumber (GetUserByPhoneNumberRequest) returns (GetUserByClientIdResponse) {}
     rpc GetUserByEmail (GetUserByEmailRequest) returns (GetUserByClientIdResponse) {}
+    rpc GetOrCreateUserBySocial (GetOrCreateUserBySocialRequest) returns (GetOrCreateUserBySocialResponse) {}
     rpc UserVerification (UserVerificationRequest) returns (UserVerificationResponse) {}
     rpc CreateUser (CreateUserRequest) returns (CreateUserResponse) {}
     rpc CreateUserByEmail (CreateUserRequest) returns (CreateUserResponse) {}
@@ -61,6 +62,27 @@ message GetUserByClientIdResponse {
     User user = 2;
     string message = 3;
     optional string errorCode = 4;
+}
+
+// GetOrCreateUserBySocial
+message GetOrCreateUserBySocialRequest {
+    int32 merchantId = 1;
+    string socialId = 2;
+    string socialType = 3;
+    optional SocialAdditionalData additionalData = 4;
+}
+
+message SocialAdditionalData {
+    optional string firstName = 1;
+    optional string lastName = 2;
+    optional string email = 3;
+}
+
+message GetOrCreateUserBySocialResponse {
+    int32 status = 1;
+    string message = 2;
+    optional string errorCode = 3;
+    optional User user = 4;
 }
 
 // VerifyUserVerification
