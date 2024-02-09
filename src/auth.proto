@@ -112,10 +112,11 @@ message LoginByPhoneResponse {
 }
 message LoginBySocialRequest {
     string subDomain = 1;
-    common.DeviceInfo deviceInfo = 2;
-    string socialType = 3;
-    string accessToken = 4;
-    optional SocialAdditionalData additionalData = 5;
+    int32 merchantId = 2;
+    common.DeviceInfo deviceInfo = 3;
+    string socialType = 4;
+    string accessToken = 5;
+    optional SocialAdditionalData additionalData = 6;
 }
 message SocialAdditionalData {
     optional string firstName = 1;
