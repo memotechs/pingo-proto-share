@@ -112,6 +112,7 @@ message CreateBookingRequest {
   repeated EachBookingRequest bookings = 6;
   string tripType = 7;
   common.ApiRequestHeader requestHeader = 8;
+  optional int32 integrationId = 9;
 }
 
 message EachBookingRequest {
