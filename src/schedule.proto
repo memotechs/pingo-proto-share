@@ -68,7 +68,6 @@ message GetScheduleDetailRequest {
   int32 id = 1;
   string date = 2;
   int32 merchantId = 3;
-  repeated int32 integration = 4;
 }
 
 message GetScheduleDetailResponse {
@@ -193,12 +192,14 @@ message GetBookingByNoRequest {
   string subDomain = 1;
   int32 userId = 2;
   string bookingNo = 3;
+  repeated int32 integration = 4;
 }
 
 message GetBookingByIdRequest {
   string subDomain = 1;
   int32 userId = 2;
   int32 id = 3;
+  repeated int32 integration = 4;
 }
 
 message GetBookingResponse {
