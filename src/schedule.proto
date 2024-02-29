@@ -5,6 +5,12 @@ package schedule;
 import "common.proto";
 
 service ScheduleService {
+  // API Integration Booking
+  rpc CreateBookingByApiIntegration (CreateBookingByApiIntegrationRequest) returns (CreateBookingByApiIntegrationResponse) {}
+  rpc UpdateBookingByApiIntegration (UpdateBookingByApiIntegrationRequest) returns (UpdateBookingByApiIntegrationResponse) {}
+  rpc CancelBookingByApiIntegration (CancelBookingByApiIntegrationRequest) returns (CancelBookingByApiIntegrationResponse) {}
+  rpc CompleteBookingByApiIntegration (CompleteBookingByApiIntegrationRequest) returns (CompleteBookingByApiIntegrationResponse) {}
+
   // Booking
   rpc CreateBooking (CreateBookingRequest) returns (CreateBookingResponse) {}
   rpc UpdateBooking (UpdateBookingRequest) returns (UpdateBookingResponse) {}
@@ -101,6 +107,66 @@ message GetBookingListWithPaginationPayload {
   int32 pageSize = 3;
   bool hasNext = 4;
   int32 totalPages = 5;
+}
+
+// Create Booking By Api Integration
+message CreateBookingByApiIntegrationRequest {
+  int32 apiIntegrationId = 1;
+  string tripType = 2;
+  string currency = 3;
+  int32 passengerCount = 4;
+  repeated EachBookingRequest bookings = 5;
+}
+
+message CreateBookingByApiIntegrationResponse {
+  int32 status = 1;
+  string message = 2;
+  optional string errorCode = 3;
+  optional BookingTransactionResponse bookingTransaction = 4;
+  optional PaymentResponse payment = 5;
+}
+
+// Update Booking By Api Integration
+message UpdateBookingByApiIntegrationRequest {
+  int32 apiIntegrationId = 1;
+  string bookingTrxNo = 2;
+  string tripType = 3;
+  string currency = 4;
+  int32 passengerCount = 5;
+  repeated EachBookingRequest bookings = 6;
+}
+
+message UpdateBookingByApiIntegrationResponse {
+  int32 status = 1;
+  string message = 2;
+  optional string errorCode = 3;
+  optional BookingTransactionResponse bookingTransaction = 4;
+  optional PaymentResponse payment = 5;
+}
+
+message CancelBookingByApiIntegrationRequest {
+  int32 apiIntegrationId = 1;
+  string bookingTrxNo = 2;
+}
+
+message CancelBookingByApiIntegrationResponse {
+  int32 status = 1;
+  string message = 2;
+  optional string errorCode = 3;
+}
+
+message CompleteBookingByApiIntegrationRequest {
+  int32 apiIntegrationId = 1;
+  string bookingTrxNo = 2;
+  string amount = 3;
+}
+
+message CompleteBookingByApiIntegrationResponse {
+  int32 status = 1;
+  string message = 2;
+  optional string errorCode = 3;
+  optional BookingTransactionResponse bookingTransaction = 4;
+  optional PaymentResponse payment = 5;
 }
 
 // Create Booking
