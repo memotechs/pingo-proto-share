@@ -158,7 +158,7 @@ message CancelBookingByApiIntegrationResponse {
 message CompleteBookingByApiIntegrationRequest {
   int32 apiIntegrationId = 1;
   string bookingTrxNo = 2;
-  string amount = 3;
+  double amount = 3;
 }
 
 message CompleteBookingByApiIntegrationResponse {
