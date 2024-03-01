@@ -129,8 +129,10 @@ message CreateBookingByApiIntegrationResponse {
 // Update Booking By Api Integration
 message UpdateBookingByApiIntegrationRequest {
   int32 apiIntegrationId = 1;
-  string bookingTrxNo = 2;
-  string action = 3;
+  string subDomain = 2;
+  int32 userId = 3;
+  string bookingTrxNo = 4;
+  string action = 5;
 }
 
 message UpdateBookingByApiIntegrationResponse {
