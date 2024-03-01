@@ -153,12 +153,12 @@ message CancelBookingByApiIntegrationResponse {
   int32 status = 1;
   string message = 2;
   optional string errorCode = 3;
+  optional BookingTransactionResponse bookingTransaction = 4;
 }
 
 message CompleteBookingByApiIntegrationRequest {
   int32 apiIntegrationId = 1;
   string bookingTrxNo = 2;
-  double amount = 3;
 }
 
 message CompleteBookingByApiIntegrationResponse {
@@ -166,7 +166,6 @@ message CompleteBookingByApiIntegrationResponse {
   string message = 2;
   optional string errorCode = 3;
   optional BookingTransactionResponse bookingTransaction = 4;
-  optional PaymentResponse payment = 5;
 }
 
 // Create Booking
