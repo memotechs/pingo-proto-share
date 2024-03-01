@@ -110,10 +110,12 @@ message GetBookingListWithPaginationPayload {
 // Create Booking By Api Integration
 message CreateBookingByApiIntegrationRequest {
   int32 apiIntegrationId = 1;
-  string tripType = 2;
-  string currency = 3;
-  int32 passengerCount = 4;
-  repeated EachBookingRequest bookings = 5;
+  string subDomain = 2;
+  int32 userId = 3;
+  string tripType = 4;
+  string currency = 5;
+  int32 passengerCount = 6;
+  repeated EachBookingRequest bookings = 7;
 }
 
 message CreateBookingByApiIntegrationResponse {
